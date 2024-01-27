@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>          
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7dbdb220b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="blocks">
+        <div class="section" id="header">
+            <div class="container">
+                <nav>
+                    <li><a class="logo" href="#home"><span data-letter="C">C</span><span data-letter="h">h</span><span data-letter="r">r</span><span data-letter="i">i</span><span data-letter="s">s</span></a></li>
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                </nav>
+                <div class="header-text">
+                    <h1>Hi, I'm</h1>
+                    <h2 data-text="Chris">Chris</h2>
+                    <h3 class="arrow">Based in the UK<span>  ↙</span></h2>
+                    <div class="wrapper">
+                        <div class="words">
+                            <span>Animator</span>
+                            <span>Robotics engineer</span>
+                            <span>Youtuber</span>
+                            <span>Programmer</span>
+                            <span>Musician</span>
+                            <span>Animator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="Images-Placeholder/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am a current undergraduate student at Loughborough University studying Robotics, Mechatronics and Control Engineering with additional passions of animating, 3D art and playing the saxophone.</p>     
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <div class="contaminant">
+                            <div class="skill-box">
+                                <span class="title">Python</span>
+                                <div class="skill-bar">
+                                    <span class="skill-per python">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="skill-box">
+                                <span class="title">C++</span>
+                                <div class="skill-bar">
+                                    <span class="skill-per cplusplus">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="skill-box">
+                                <span class="title">Arduino</span>
+                                <div class="skill-bar">
+                                    <span class="skill-per arduino">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <div class="timeline-area">
+                            <div class="event">
+                                <h2>Full Stack Developer</h2>
+                                <h3>Google</h3>
+                                <h4>2014 - Present</h4>
+                            </div>
+                            <div class="event">
+                                <h2>Full Stack Developer</h2>
+                                <h3>Google</h3>
+                                <h4>2013 - 2014</h4>
+                            </div>
+                            <div class="event">
+                                <h2>Full Stack Developer</h2>
+                                <h3>Google</h3>
+                                <h4>2009 - 2013</h4>
+                            </div>
+                            <div class="event">
+                                <h2>Full Stack Developer</h2>
+                                <h3>Google</h3>
+                                <h4>2005 - 2009</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <div class="timeline-area">
+                            <div class="event">
+                                <h2>Dartford Grammar School</h2>
+                                <h3>Student</h3>
+                                <h4>2016 - 2023</h4>
+                            </div>
+                            <div class="event">
+                                <h2>Loughborough University</h2>
+                                <h3>Student</h3>
+                                <h4>2023 - 2027</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-brands fa-youtube"></i>
+                    <h2>Youtuber</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-robot"></i>
+                    <h2>Robotics Engineer</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-palette"></i>
+                    <h2>Artist / Animator</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="t-titles">
+                <p class="t-links active-link" onclick="opent('engineering')">Engineering</p>
+                <p class="t-links" onclick="opent('animation')">Animation</p>
+                <p class="t-links" onclick="opent('music')">Music</p>
+            </div>
+            <div class="t-contents active-tab" id="engineering">
+                <div class="swiper-container">
+                    <div class="work-list swiper-wrapper">
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-1.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Social Media App</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-2.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 2</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 3</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="t-contents" id="animation">
+                <div class="swiper-container">
+                    <div class="work-list swiper-wrapper">
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-1.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Social Media App</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-2.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 2</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 3</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="t-contents" id="music">
+                <div class="swiper-container">
+                    <div class="work-list swiper-wrapper">
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-1.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Social Media App</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 2</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="work swiper-slide">
+                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
+                            <div class="layer">
+                                <h3>Number 3</h3>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--contact--> 
+    <div class="section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>chrisjawomolo@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/ChristopherAwomolo"><i class="fa-brands fa-github"></i></a>
+                        <!--contact <a href="https://www.instagram.com/chris.crx/"><i class="fa-brands fa-instagram"></i></a> -->
+                        <a href="https://www.linkedin.com/in/christopher-jadon-awomolo-736322297/"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="Images-Placeholder/my-cv.pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                </form> 
+                <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © Chris.</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    var tlinks = document.getElementsByClassName("t-links");
+    var tcontents = document.getElementsByClassName("t-contents");
+    function opent(tname){
+        for(tlink of tlinks){
+            tlink.classList.remove("active-link");
+        }
+        for(tcontent of tcontents){
+            tcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu")
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxQjRqwI2deTCHv7eWFjeCnlREmp2Lqne115Hb2eOOKI3PLd6gAKE1SAXkImet5snnK/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },1000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="circle-progress.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1, // Number of slides to show at once
+        spaceBetween: 30, // Space between slides
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+</body>
+</html>
