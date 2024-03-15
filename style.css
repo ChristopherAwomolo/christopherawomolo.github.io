@@ -26,6 +26,7 @@ body::-webkit-scrollbar{
     background-image: url(Images-Placeholder/background.png);
     background-size: cover;
     background-position: center;
+    list-style-type: none;
 }
 .container{
     width: 100%;
@@ -59,6 +60,11 @@ nav{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+li {
+    list-style-type: none;
+}
+
 
 .logo{
     width: 140px;
@@ -232,7 +238,7 @@ nav ul li a:hover::after{
     position: relative;
     font-size: 10vw;
     color: #080808;
-    -webkit-text-stroke: 0.2vw #1a51ab;
+    -webkit-text-stroke: 0.37vw #1a51ab;
 }
 
 .based{
@@ -240,9 +246,14 @@ nav ul li a:hover::after{
 }
 
 .arrow{
+    width: 5%;
+}
+
+.area{
     font-weight: 200;
     padding-top: 20px;
     font-size: 4vw;
+    height: 50%;
 }
 
 .header-text h2::before{
@@ -262,12 +273,10 @@ nav ul li a:hover::after{
 .wrapper{
     padding-top: 1vh;
     box-sizing: content-box;
-    background-color: black;
     height: 6vh;
     width: 40%;
     display: flex;
     border-radius: 0.5vw;
-    box-shadow: 0 1vw 1vw rgba(0,0,0,0.2);
 }
 
 .words{

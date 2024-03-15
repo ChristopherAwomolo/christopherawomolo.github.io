@@ -27,7 +27,7 @@
                 <div class="header-text">
                     <h1>Hi, I'm</h1>
                     <h2 data-text="Chris">Chris</h2>
-                    <h3 class="arrow">Based in the UK<span>  ↙</span></h2>
+                    <h3 class="area">Based in the UK <span><img src="Images-Placeholder/bottom_left_arrow.png" alt="" class="arrow"></span></h2> 
                     <div class="wrapper">
                         <div class="words">
                             <span>Role 1</span>
@@ -49,7 +49,12 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>Insert Description Here</p>     
+                    <p>I'm an undergraduate studying robotics, with a desire to explore machine learning and
+                         autonomous systems. With industry experience in drawing and animating, I utilise my 
+                         creative skill in order to craft precise 3D models seamlessly. Beyond academics, I 
+                         find solace playing piano and guitar, using music to unwind. I merge technical prowess 
+                         with artistic expression to contribute meaningfully to robotics, aiming to bridge innovation 
+                         and creativity for a brighter future.</p> 
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                         <p class="tab-links" onclick="opentab('experience')">Experience</p>
@@ -128,22 +133,22 @@
             <h1 class="sub-title">My Services</h1>
             <div class="services-list">
                 <div>
-                    <i class="fa-brands fa-youtube"></i>
-                    <h2>Youtuber</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
-                    <a href="#">Learn more</a>
-                </div>
-                <div>
                     <i class="fa-solid fa-robot"></i>
                     <h2>Robotics Engineer</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
-                    <a href="#">Learn more</a>
+                    <p>With a fervent passion for robotics, I've ventured beyond academia to create my own robots. Fueled by a desire to innovate, 
+                        I've meticulously designed and developed robots that embody precision, efficiency, and intelligence. From conceptualization 
+                        to realization, each creation reflects my dedication to pushing the boundaries of what's possible in robotics. Whether it's 
+                        autonomous drones or humanoid assistants, my services offer bespoke robotic solutions tailored to meet diverse needs and challenges.</p>
+                    <a href="#portfolio" onclick="opent('engineering')">Learn more</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-palette"></i>
                     <h2>Artist / Animator</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus omnis harum iste ipsa repudiandae exercitationem, eius non accusamus nihil architecto quidem perspiciatis quo! Accusamus provident consequatur doloremque quam accusantium rerum.</p>
-                    <a href="#">Learn more</a>
+                    <p>Driven by a deep love for art and animation, I offer bespoke services that bring imagination to life. With a keen eye for detail 
+                        and a flair for creativity, I craft captivating animations and illustrations that captivate audiences. From character design to 
+                        storytelling, each project is infused with passion and expertise, ensuring a unique and engaging visual experience. Let me transform 
+                        your ideas into stunning visuals that leave a lasting impression.</p>
+                    <a href="#portfolio" onclick="opent('animation')">Learn more</a>
                 </div>
             </div>
         </div>
@@ -153,8 +158,7 @@
             <h1 class="sub-title">My Work</h1>
             <div class="t-titles">
                 <p class="t-links active-link" onclick="opent('engineering')">Engineering</p>
-                <p class="t-links" onclick="opent('animation')">Animation</p>
-                <p class="t-links" onclick="opent('music')">Music</p>
+                <p class="t-links" onclick="opent('animation')">Artwork</p>
             </div>
             <div class="t-contents active-tab" id="engineering">
                 <div class="swiper-container">
@@ -162,9 +166,9 @@
                         <div class="work swiper-slide">
                             <img src="Images-Placeholder/work-1.png" alt="" class="swiper-slide">
                             <div class="layer">
-                                <h3>Social Media App</h3>
-                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <h3>Wi-Fi Controlled Robot</h3>
+                                <p>A robot that communicates via Wi-Fi and the app Blynk</p>
+                                <a href="WifiRobot.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                         <div class="work swiper-slide">
@@ -172,7 +176,7 @@
                             <div class="layer">
                                 <h3>Number 2</h3>
                                 <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="#number2"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                         <div class="work swiper-slide">
@@ -180,7 +184,7 @@
                             <div class="layer">
                                 <h3>Number 3</h3>
                                 <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="#number3"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                     </div>
@@ -194,45 +198,15 @@
                             <div class="layer">
                                 <h3>Social Media App</h3>
                                 <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="#number1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                         <div class="work swiper-slide">
                             <img src="Images-Placeholder/work-2.png" alt="" class="swiper-slide">
                             <div class="layer">
                                 <h3>Number 2</h3>
-                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="work swiper-slide">
-                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
-                            <div class="layer">
-                                <h3>Number 3</h3>
-                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="t-contents" id="music">
-                <div class="swiper-container">
-                    <div class="work-list swiper-wrapper">
-                        <div class="work swiper-slide">
-                            <img src="Images-Placeholder/work-1.png" alt="" class="swiper-slide">
-                            <div class="layer">
-                                <h3>Social Media App</h3>
-                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                        <div class="work swiper-slide">
-                            <img src="Images-Placeholder/work-3.png" alt="" class="swiper-slide">
-                            <div class="layer">
-                                <h3>Number 2</h3>
-                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD</p>
-                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <p>BLAH DI BLAH ASDIASDASDAWDASDAD -2324142</p>
+                                <a href="#number2"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
                         <div class="work swiper-slide">
