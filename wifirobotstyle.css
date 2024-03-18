@@ -31,7 +31,7 @@ body, h1, p, img {
 }
 
 .content {
-    max-width: 80%; /* Adjust width as needed */
+    max-width: 60%; /* Adjust width as needed */
     padding: 20px;
 }
 
@@ -96,6 +96,18 @@ nav ul li a:hover {
     color: #1a51ab;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #666;
+}
 
 @media screen and (max-width: 600px) {
     .divider {
@@ -113,5 +125,4 @@ nav ul li a:hover {
     .content {
         max-width: 90%; /* Adjust width as needed */
     }
-    
   }

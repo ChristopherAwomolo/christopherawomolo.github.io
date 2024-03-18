@@ -11,7 +11,11 @@
         <img src="WifiRobotImages-Placeholder/Illustration.png" alt="Banner Image">
     </div>
     <div class="container">
-        <div class="divider"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">< Go Back</a></li>
+            </ul>
+        </nav>
         <div class="content">
             <h1>Wifi Robot</h1>
             <p class="metadata">Published on March 9, 2024</p>
@@ -19,45 +23,109 @@
                 <div class="Title">
                     <h2 class="title-row1">Overview</h2>
                 </div>
+                <br>
                 <div class="overview-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...sdfsfsssf fsfs</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...</p>
+                    <p>
+                        This blog will provide a comprehensive guide on creating and evaluating the Wi-Fi Robot, detailing the step-by-step process of its construction, showcasing videos of it in action, concluding with offering an evaluation of its performance.</p>
                 </div>
             </div>
             <div class="section" id="whatisit">
                 <div class="Title">
                     <h2 class="title-row1">What is it?</h2>
                 </div>
+                <br>
                 <div class="overview-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...sdfsfsssf fsfs</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...</p>
+                    <p>The robot is Wi-Fi controlled, operable via your phone, using the IoT platform Blynk alongside an ESP32 for wireless data transmission and reception, ensuring efficiency.</p>
                 </div>
             </div>
             <div class="section" id="tutorial">
                 <div class="Title">
                     <h2 class="title-row1">How to make</h2>
                 </div>
+                <br>
                 <div class="overview-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...sdfsfsssf fsfs</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...</p>
+                    <h3>Parts List</h3>
+
+                    <ul>
+                        <li>1x Chassis Board</li>
+                        <li>1x Small Caster Wheel</li>
+                        <li>2x Yellow Gear Motors with Wheels</li>
+                        <li>1x ESP32</li>
+                        <li>1x L298N Motor Driver</li>
+                        <li>1x Battery Pack</li>
+                        <li>Jumper Wires</li>
+                        <li>1x Breadboard</li>
+                    </ul>
+                    <p></p>
+                    <h3>Project Schematic</h3>
+                    <img src="WifiRobotImages-Placeholder/Circuit.png" alt="Banner Image">
+                    <h3>Step by step</h3>
+                    <br>
+                    <ol>
+                        <li>Set up the parts as shown in the schematic</li>
+                        <li>Upload this code to the esp32:</li>
+                        <div class="code-wrap">
+                            <pre class="prism-line numbers language-c" data-lang="C">
+                                <code>
+                                    x = 5;
+                                    y = 6;
+                                    z = x + y;
+                                    </code>
+                        </div>
+
+                        <li>Example 3</li>
+                        </ol>
                 </div>
             </div>
             <div class="section" id="videos">
                 <div class="Title">
-                    <h2 class="title-row1">Videos of it working</h2>
+                    <h2 class="title-row1">Videos</h2>
                 </div>
-                <div class="overview-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...sdfsfsssf fsfs</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...</p>
+                <br>
+                <div class="boxes-videos"">
+                    <video controls src="WifiRobotImages-Placeholder/Video1.mp4" width="500"></video>
+                    <video controls src="WifiRobotImages-Placeholder/Video2.mp4" width="500"></video>
                 </div>
             </div>
+            <br>
             <div class="section" id="evaluation">
                 <div class="Title">
                     <h2 class="title-row1">Evaluation</h2>
                 </div>
+                <br>
                 <div class="overview-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...sdfsfsssf fsfs</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec elit vel turpis lacinia condimentum. Vivamus sollicitudin leo vitae magna fringilla ultricies...</p>
+                    <p>In summary, this project achieved success in crafting a basic robot and enriching my understanding of electronics, 
+                        while also fostering newfound abilities in soldering, wiring, and coding. Nonetheless, alongside its strengths, 
+                        the project also revealed areas for improvement.
+                    </p>
+                </div>
+                <div class="sub-title">
+                    <h3 class="title-row2">Weaknesses and Areas for Improvement</h2>
+                </div>
+                <br>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Weakness</th>
+                                <th>Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The weight on the robot was not originally equally distributed, leading to a decision to place the battery pack at the front of the robot to reduce drag.</td>
+                                <td>Use a smaller battery pack e.g. (2x Li-on) batteries or a lighter set of batteries.</td>
+                            </tr>
+                            <tr>
+                                <td>The communication between the phone and the robot was very delayed at times.</td>
+                                <td>Use a web server or bluetooth connection to ensure faster data transmission.</td>
+                            </tr>
+                            <tr>
+                                <td>The robot would sometimes not follow the directions given due to a lack of grip on the ground.</td>
+                                <td>Increase the number of gear motors on the robot from 2 to 4 and increase the number of wheels from 3 to 4.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -68,7 +136,7 @@
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#whatisit">What is it?</a></li>
                 <li><a href="#tutorial">How to make</a></li>
-                <li><a href="#videos">Videos of it working</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#evaluation">Evaluation</a></li>
             </ul>
         </nav>
