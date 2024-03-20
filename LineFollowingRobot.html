@@ -128,8 +128,8 @@
                 </div>
                 <br>
                 <div class="boxes-videos"">
-                    <video controls src="WifiRobotImages-Placeholder/Video1.mp4" width="500"></video>
-                    <video controls src="WifiRobotImages-Placeholder/Video2.mp4" width="500"></video>
+                    <video controls src="LineFollowingRobot-Placeholder/Video1.mp4" width="500"></video>
+                    <video controls src="LineFollowingRobot-Placeholder/Video2.mp4" width="500"></video>
                 </div>
             </div>
             <br>
@@ -139,9 +139,8 @@
                 </div>
                 <br>
                 <div class="overview-description">
-                    <p>In summary, this project achieved success in crafting a basic robot and enriching my understanding of electronics, 
-                        while also fostering newfound abilities in soldering, wiring, and coding. Nonetheless, alongside its strengths, 
-                        the project also revealed areas for improvement.
+                    <p>This project was successful in creating a basic line following robot that also adjusts to follow the line. 
+                      However, there were some areas in which the line following robot fell short of what was expected / what would be an optimized system for its line following:
                     </p>
                 </div>
                 <div class="sub-title">
@@ -158,16 +157,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>The weight on the robot was not originally equally distributed, leading to a decision to place the battery pack at the front of the robot to reduce drag.</td>
-                                <td>Use a smaller battery pack e.g. (2x Li-on) batteries or a lighter set of batteries.</td>
+                                <td>The robot would sometimes not detect whether it was on a black line or not depending on the distance of the black line to the line follower</td>
+                                <td>Use line following sensors with multiple arrays / multiple line followers in parallel</td>
                             </tr>
                             <tr>
-                                <td>The communication between the phone and the robot was very delayed at times.</td>
-                                <td>Use a web server or bluetooth connection to ensure faster data transmission.</td>
-                            </tr>
-                            <tr>
-                                <td>The robot would sometimes not follow the directions given due to a lack of grip on the ground.</td>
-                                <td>Increase the number of gear motors on the robot from 2 to 4 and increase the number of wheels from 3 to 4.</td>
+                                <td>The turning with the robot was a bit too slow</td>
+                                <td>Adjust the motor speed to make it spin faster</td>
                             </tr>
                         </tbody>
                     </table>
