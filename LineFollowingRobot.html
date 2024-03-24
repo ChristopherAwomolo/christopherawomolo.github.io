@@ -36,7 +36,7 @@
                 </div>
                 <br>
                 <div class="overview-description">
-                    <p>As previously stated, the robot is able to conduct line following and is programmed using Arduino C.</p>
+                    <p>As previously stated, the robot is able to conduct line following and is programmed using Arduino C. Additionally, the robot is also able to detect obstacles using the ultrasonic sensor attached to it and thus avoid the obstacles in its way</p>
                 </div>
             </div>
             <div class="section" id="tutorial">
@@ -60,63 +60,83 @@
                         <div class="code-wrap">
                             <pre class="prism-line numbers language-c" data-lang="C">
                                 <code>
-                                  #include "MeMegaPi.h"
+                                    #include "MeMegaPi.h"
 
-                                  MeLineFollower lineFinder(PORT6);
-                                  MeMegaPiDCMotor motor1(PORT1A); // Left motor
-                                  MeMegaPiDCMotor motor2(PORT1B); // Left motor
-                                  MeMegaPiDCMotor motor3(PORT2A); // Right motor
-                                  MeMegaPiDCMotor motor4(PORT2B); // Right motor
-                                  
-                                  uint8_t motorSpeed = 50;
-                                  uint8_t diffFactor = 50; // Adjust this based on the difference between motors
-                                  
-                                  void setup() {
-                                    Serial.begin(9600);
-                                  }
-                                  
-                                  void loop() {
-                                    int sensorState = lineFinder.readSensors();
-                                  
-                                    switch(sensorState) {
-                                      case S1_IN_S2_IN: // Both sensors are inside the line
-                                        Serial.println("Both sensors are inside the line");
-                                        // Move forward at adjusted speed
-                                        motor1.run(motorSpeed);              // Left motor
-                                        motor2.run(motorSpeed);              // Left motor
-                                        motor3.run(motorSpeed + diffFactor); // Right motor
-                                        motor4.run(motorSpeed + diffFactor); // Right motor
-                                        break;
-                                      case S1_IN_S2_OUT: // Left sensor is inside, right sensor is outside
-                                        Serial.println("Sensor 1 is inside, Sensor 2 is outside");
-                                        // Adjust to the left
-                                        motor1.run(motorSpeed/10);              // Left motor
-                                        motor2.run(motorSpeed/10);              // Left motor
-                                        motor3.run(motorSpeed);              // Right motor
-                                        motor4.run(motorSpeed);              // Right motor
-                                        break;
-                                      case S1_OUT_S2_IN: // Right sensor is inside, left sensor is outside
-                                        Serial.println("Sensor 1 is outside, Sensor 2 is inside");
-                                        // Adjust to the right
-                                        motor1.run(motorSpeed); // Left motor
-                                        motor2.run(motorSpeed); // Left motor
-                                        motor3.run(motorSpeed/10);              // Right motor
-                                        motor4.run(motorSpeed/10);              // Right motor
-                                        break;
-                                      case S1_OUT_S2_OUT: // Both sensors are outside the line
-                                        Serial.println("Both sensors are outside the line");
-                                        // Stop
+                                    MeUltrasonicSensor ultraSensor(PORT_7); 
+                                    int thresholdDistance = 10; // Threshold distance (cm) for the robot to stop
+                                    
+                                    MeLineFollower lineFinder(PORT6);
+                                    MeMegaPiDCMotor motor1(PORT1A); // Left motor
+                                    MeMegaPiDCMotor motor2(PORT1B); // Left motor
+                                    MeMegaPiDCMotor motor3(PORT2A); // Right motor
+                                    MeMegaPiDCMotor motor4(PORT2B); // Right motor
+                                    
+                                    uint8_t motorSpeed = 50;
+                                    uint8_t diffFactor = 50; // The difference in rotary power between the two motors. If the two motors operate exactly the same, set this to 0
+                                    uint8_t diffFactorBackwards = 25; // Same as above but it changes when moving backwards compared to forwards.
+                                    
+                                    void setup() {
+                                      Serial.begin(9600);
+                                    }
+                                    
+                                    void loop() {
+                                      int distance = ultraSensor.distanceCm();
+                                    
+                                      // Check if the distance is below the threshold distance
+                                      if (distance <= thresholdDistance) {
+                                        Serial.println("Object too close! Stopping the car.");
+                                        // Stop the car
                                         motor1.stop();
                                         motor2.stop();
                                         motor3.stop();
                                         motor4.stop();
-                                        break;
-                                      default: 
-                                        break;
+                                      } else {
+                                        // Continue with line following if distance is not below the threshold
+                                        int sensorState = lineFinder.readSensors();
+                                        switch(sensorState) {
+                                          case S1_IN_S2_IN: // Both sensors are inside the line
+                                            Serial.println("Both sensors are inside the line");
+                                            // Move forward at adjusted speed
+                                            motor1.run(motorSpeed);              // Left motor
+                                            motor2.run(motorSpeed);              // Left motor
+                                            motor3.run(motorSpeed + diffFactor); // Right motor
+                                            motor4.run(motorSpeed + diffFactor); // Right motor
+                                            break;
+                                          case S1_IN_S2_OUT: // Left sensor is inside, right sensor is outside
+                                            Serial.println("Sensor 1 is inside, Sensor 2 is outside");
+                                            // Adjust to the left
+                                            motor1.run(-motorSpeed);              // Left motor
+                                            motor2.run(-motorSpeed);              // Left motor
+                                            motor3.run(motorSpeed+ diffFactor);              // Right motor
+                                            motor4.run(motorSpeed+ diffFactor);              // Right motor
+                                            break;
+                                          case S1_OUT_S2_IN: // Right sensor is inside, left sensor is outside
+                                            Serial.println("Sensor 1 is outside, Sensor 2 is inside");
+                                            // Adjust to the right
+                                            motor1.run(motorSpeed+ diffFactor); // Left motor
+                                            motor2.run(motorSpeed+ diffFactor); // Left motor
+                                            motor3.run(-motorSpeed);              // Right motor
+                                            motor4.run(-motorSpeed);              // Right motor
+                                            break;
+                                          case S1_OUT_S2_OUT: // Both sensors are outside the line
+                                            Serial.println("Both sensors are outside the line");
+                                            // Stop
+                                            motor1.run(-motorSpeed+diffFactorBackwards);              // Left motor
+                                            motor2.run(-motorSpeed+diffFactorBackwards);              // Left motor
+                                            motor3.run(-motorSpeed); // Right motor
+                                            motor4.run(-motorSpeed); // Right motor
+                                            break;
+                                          default: 
+                                            motor1.run(-motorSpeed+diffFactorBackwards);              // Left motor
+                                            motor2.run(-motorSpeed+diffFactorBackwards);              // Left motor
+                                            motor3.run(-motorSpeed); // Right motor
+                                            motor4.run(-motorSpeed); // Right motor
+                                            break;
+                                        }
+                                      }
+                                    
+                                      delay(200); // Adjust delay as necessary for responsiveness
                                     }
-                                  
-                                    delay(200); // Adjust delay as necessary for responsiveness
-                                  }
                                 </code>
                           <li>Start the robot and watch it line follow!</li>
                         </div> 
@@ -130,6 +150,7 @@
                 <div class="boxes-videos"">
                     <video controls src="LineFollowingRobot-Placeholder/Video1.mp4" width="500"></video>
                     <video controls src="LineFollowingRobot-Placeholder/Video2.mp4" width="500"></video>
+                    <video controls src="LineFollowingRobot-Placeholder/Video3.mp4" width="500"></video>
                 </div>
             </div>
             <br>
