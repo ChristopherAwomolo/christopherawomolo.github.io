@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Article</title>
+    <link rel="stylesheet" href="wifirobotstyle.css">
+</head>
+<body>
+    <div class="banner">
+        <img src="WifiRobotImages-Placeholder/WiFiRobotHeader.png" alt="Banner Image">
+    </div>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../../index.html">< Go Back</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>Wifi Robot</h1>
+            <p class="metadata">Published on March 9, 2024</p>
+            <div class="section" id="overview">
+                <div class="Title">
+                    <h2 class="title-row1">Overview</h2>
+                </div>
+                <br>
+                <div class="overview-description">
+                    <p>
+                        This blog will provide a comprehensive guide on creating and evaluating the Wi-Fi Robot, detailing the step-by-step process of its construction, showcasing videos of it in action, concluding with offering an evaluation of its performance.</p>
+                </div>
+            </div>
+            <div class="section" id="whatisit">
+                <div class="Title">
+                    <h2 class="title-row1">What is it?</h2>
+                </div>
+                <br>
+                <div class="overview-description">
+                    <p>The robot is Wi-Fi controlled, operable via your phone, using the IoT platform Blynk alongside an ESP32 for wireless data transmission and reception, ensuring efficiency.</p>
+                </div>
+            </div>
+            <div class="section" id="tutorial">
+                <div class="Title">
+                    <h2 class="title-row1">How to make</h2>
+                </div>
+                <br>
+                <div class="overview-description">
+                    <h3>Parts List</h3>
+
+                    <ul>
+                        <li>1x Chassis Board</li>
+                        <li>1x Small Caster Wheel</li>
+                        <li>2x Yellow Gear Motors with Wheels</li>
+                        <li>1x ESP32</li>
+                        <li>1x L298N Motor Driver</li>
+                        <li>1x Battery Pack</li>
+                        <li>Jumper Wires</li>
+                        <li>1x Breadboard</li>
+                    </ul>
+                    <p></p>
+                    <h3>Project Schematic</h3>
+                    <img src="WifiRobotImages-Placeholder/Circuit.png" alt="Banner Image">
+                    <h3>Step by step</h3>
+                    <br>
+                    <ol>
+                        <li>Set up the parts as shown in the schematic</li>
+                        <li>Upload this code to the esp32:</li>
+                        <div class="code-wrap">
+                            <pre class="prism-line numbers language-c" data-lang="C">
+                                <code>
+#define BLYNK_TEMPLATE_ID "Insert Blynk Template ID here"
+#define BLYNK_TEMPLATE_NAME "WiFi control car"
+#define BLYNK_AUTH_TOKEN "Insert Blynk Authentication token here"
+#define BLYNK_PRINT Serial
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+
+
+// Define the motor pins
+#define ENA 18
+#define IN1 5
+#define IN2 16
+#define IN3 25
+#define IN4 27
+#define ENB 33
+ 
+bool forward = 0;
+bool backward = 0;
+bool left = 0;
+bool right = 0;
+int Speed;
+char auth[] = "Insert authentication token here"; //Enter your Blynk auth token
+char ssid[] = "Insert WiFi name here";
+char pass[] = "Insert WiFi password here";
+
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(ENA, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  Blynk.begin(auth, ssid, pass);
+}
+ 
+BLYNK_WRITE(V0) {
+  forward = param.asInt();
+}
+ 
+BLYNK_WRITE(V1) {
+  backward = param.asInt();
+}
+ 
+BLYNK_WRITE(V2) {
+  left = param.asInt();
+}
+ 
+BLYNK_WRITE(V3) {
+  right = param.asInt();
+}
+ 
+BLYNK_WRITE(V4) {
+  Speed = param.asInt();
+}
+ 
+void smartcar() {
+  if (forward == 1) {
+    carforward();
+  } else if (backward == 1) {
+    carbackward();
+  } else if (left == 1) {
+    carturnleft();
+  } else if (right == 1) {
+    carturnright();
+  } else if (forward == 0 && backward == 0 && left == 0 && right == 0) {
+    carStop();
+  }
+}
+void loop() {
+  Blynk.run();
+  smartcar();
+}
+ 
+void carforward() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+void carbackward() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+void carturnleft() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+void carturnright() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+void carStop() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
+
+
+                                    </code>
+                        </div>
+
+                        <li>Follow the instructions from this video from points 6:43 to 8:43</li>
+                        </ol>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/huWn4Sx99hQ?si=mCAZugNGoCuWLSth&?t=404" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="section" id="videos">
+                <div class="Title">
+                    <h2 class="title-row1">Videos</h2>
+                </div>
+                <br>
+                <div class="boxes-videos"">
+                    <video controls src="WifiRobotImages-Placeholder/Video1.mp4" width="500"></video>
+                    <video controls src="WifiRobotImages-Placeholder/Video2.mp4" width="500"></video>
+                </div>
+            </div>
+            <br>
+            <div class="section" id="evaluation">
+                <div class="Title">
+                    <h2 class="title-row1">Evaluation</h2>
+                </div>
+                <br>
+                <div class="overview-description">
+                    <p>In summary, this project achieved success in crafting a basic robot and enriching my understanding of electronics, 
+                        while also fostering newfound abilities in soldering, wiring, and coding. Nonetheless, alongside its strengths, 
+                        the project also revealed areas for improvement.
+                    </p>
+                </div>
+                <div class="sub-title">
+                    <h3 class="title-row2">Weaknesses and Areas for Improvement</h2>
+                </div>
+                <br>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Weakness</th>
+                                <th>Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The weight on the robot was not originally equally distributed, leading to a decision to place the battery pack at the front of the robot to reduce drag.</td>
+                                <td>Use a smaller battery pack e.g. (2x Li-on) batteries or a lighter set of batteries.</td>
+                            </tr>
+                            <tr>
+                                <td>The communication between the phone and the robot was very delayed at times.</td>
+                                <td>Use a web server or bluetooth connection to ensure faster data transmission.</td>
+                            </tr>
+                            <tr>
+                                <td>The robot would sometimes not follow the directions given due to a lack of grip on the ground.</td>
+                                <td>Increase the number of gear motors on the robot from 2 to 4 and increase the number of wheels from 3 to 4.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#whatisit">What is it?</a></li>
+                <li><a href="#tutorial">How to make</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#evaluation">Evaluation</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
