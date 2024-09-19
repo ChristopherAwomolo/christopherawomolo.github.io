@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="banner">
-        <img src="LineFollowingRobot-Placeholder/LineFollowingRobotHeader.png" alt="Banner Image">
+        <img src="RubiksCubeSolvingRobotImages-Placeholder/RubiksCubeSolvingRobotHeader.png" alt="Banner Image">
     </div>
     <div class="container">
         <nav>
@@ -59,57 +59,34 @@
                         <br>
                         <div class="overview-description">
                             <h5>Colour Detection Algorithm</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
+                            <p>The colour detection algorithm was made by using decision trees utilising the libraries TensorFlow and PyTorch. The hsv values were used as a metric to classify the different colours.
                             </p>
-                            <h5>Displaying the net of the Cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
-                            </p>
-                            <h5>Displaying and animating the cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
-                            </p>
-                            <h5>Solving the cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
-                            </p>
-                            <h5>Showing the steps of the Rubik's Cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
-                            </p>
-                            <br></br>
                             <h3>GUI</h3>
                             <h5>Library Used</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
+                            <p>The library used in this application was Python's Qt5 library.
                                 This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
                                 3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
                             </p>
                             <h5>Displaying the net of the Cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
+                            <p>Displaying the net of the cube, or rather the colours for the net of the cube was rather simple. I created a label for each square of the rubiks cube, and extracted the values 
+                                of the specific cube piece (for all cube piece), when given a dictionary containing the positions of each of the facets (keys) and each colour of the facets (values).
                             </p>
                             <h5>Displaying and animating the cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
+                            <p>Displaying and animating the cube was done using PyOpenGL and Pygame in conjunction with PyQt5's OpenGLWidget. The cube animates when any of the keys: U, R, L, F, B, D (corresponding
+                                to the faces on the Rubik's cube) are pressed. Using this logic, each individual string of the solved solution was passed into the animating function so that the cube could animate 
+                                the solve. 
                             </p>
                             <h5>Solving the cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
+                            <p>Solving the cube was quite easy, the kociemba libary was used. In future, I plan to add a more efficient algorithm such that the cube can be solved in a quicker amount of time.
                             </p>
                             <h5>Showing the steps of the Rubik's Cube</h5> 
-                            <p>To make sure that the state of the Rubik's cube could be easily understood and solved by the robot, I created a Python-based GUI, specifically using the Python Qt5 library. 
-                                This library was specifically chosen due to its lightweight yet very customisable design, which also included a PyOpenGL widget in which I used to render an interactable 
-                                3d version of the cube, as well as Widgets in which I could initialise the camera using opencv and display on the GUI. 
-                            </p>
+                            <p>I had added an 'additional steps' button on the GUI such that the user could go through all of the steps on the rubiks cube. This was done by getting the kociemba solved string
+                                and expanding the solved string e.g. "U F2 D R2 B' F' L2" -> "U F F D R R B' F' L L". This provided a more thorough detail into the steps made to solve the rubiks cube. To track the current step 
+                                of the cube, I initialised two variables: current_step and previous_step, with debouncing so that the animation does not freeze and play twice when pressing multiple buttons.
+                                There was an issue when skipping steps e.g. if I wanted to go from step 6 to 19 and vice versa, the first was solved by taking the difference in steps between the previous_step 
+                                and the current step and animating, whereas the latter required a more complex solution. To go back in steps, like going from 19 to 6, the original solved string had to be 
+                                converted into a list and then reversed, before taking the Prime (") of the entire list. Using the previous example, the reversed list would be "L L F' B' R R D F F U", and the primed
+                                list would result in "L' L' F B R' R' D' F' F' U'". Notice how taking the prime of a prime results in the original step (similar to how complements work in maths).
                         </div>
                     </div>
                     <div class="section" id="hardware">
@@ -128,8 +105,6 @@
                 <br>
                 <div class="boxes-videos"">
                     <video controls src="RubiksCubeSolvingRobotImages-Placeholder/GUITest.mp4" width="500"></video>
-                    <video controls src="LineFollowingRobot-Placeholder/Video2.mp4" width="500"></video>
-                    <video controls src="LineFollowingRobot-Placeholder/Video3.mp4" width="500"></video>
                 </div>
             </div>
             <br>
